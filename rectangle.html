@@ -21,6 +21,14 @@
             return 2 * (this.length + this.width);
         };
 
+        this.setWidth = function(w){
+            this.width = w;
+        };
+
+        this.setLength = function(l) {
+            this.length = l;
+        };
+
         this.createRectangle = function(){
             var ctx = document.getElementById("myCanvas").getContext("2d");
             var grd = ctx.createLinearGradient(0,0,200,0);
