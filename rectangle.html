@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="500px" height="500px"></canvas>
+<script>
+    var Rectangle = function(length, width, color1, color2){
+        this.length = length;
+        this.width = width;
+        this.color1 = color1;
+        this.color2= color2;
+
+        this.getArea = function() {
+            return this.length*this.width;
+        };
+
+        this.getPerimeter = function() {
+            return 2 * (this.length + this.width);
+        };
+
+        this.createRectangle = function(){
+            var ctx = document.getElementById("myCanvas").getContext("2d");
+            var grd = ctx.createLinearGradient(0,0,200,0);
+            grd.addColorStop(0, this.color1);
+            grd.addColorStop(1,this.color2);
+            ctx.fillStyle=grd;
+            var rectangle = new Rectangle(this.width,this.length);
+            ctx.fillRect(50,50,rectangle.width,rectangle.length);
+        };
+    };
+
+
+    var rec = new Rectangle(500, 400, "blue", "white");
+    rec.createRectangle();
+    document.write("<br> Area is: " + rec.getArea() + "<br>");
+    document.write("Perimeter is :" + rec.getPerimeter());
+
+</script>
+</body>
+</html>
